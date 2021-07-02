@@ -3,9 +3,9 @@
     <h1 class="text-3xl font-semibold text-red-600">
       {{tituloBlog}}
     </h1>
-    <article v-for="(artigo, index) in listaArtigos" :key="index" class="my-20">
-      <h2 class="text-5xl font-semibold mb-5">{{artigo.titulo}}</h2>
-      <p class="mb-5">{{artigo.resumo}}</p>
+    <article v-for="(artigo, id) in listaArtigos" :key="id" class="my-20">
+      <h2 class="text-5xl font-semibold mb-5">{{artigo.email}}</h2>
+      <p class="mb-5">{{artigo.name}}</p>
       <p class="text-red-500">Ler Mais</p>
     </article>
   </div>
@@ -25,7 +25,7 @@ export default {
   methods: {
     carregarListaArtigos() {
       this.$axios
-        .get("https://api")
+        .get("https://jsonplaceholder.typicode.com/comments")
         .then((respostaAPI) => {
           this.listaArtigos = respostaAPI.data;   
         });
